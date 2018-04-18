@@ -1,0 +1,55 @@
+{% load static %}
+
+<div class="o_item col-md-4 col-xs-12">
+    <h3>{{wanted.vi_name}} <br> {{wanted.name}}</h3>
+    {% with 'onmyoji/img/wanted/'|add:wanted.code_name|add:'/full' as full_src %}
+    <div><img src="{% static full_src %}"></div>
+    {% endwith %}
+    <div class="d-flex flex-wrap">
+        {% for type, appear in wanted.appears.items %}
+            {% if type == 'secret' %}
+                {% for secret_id, secret_data in appear.items %}
+                    {% for item, data in secret_data.items %}
+                        {% if item == 'found' %}
+                            {% for total, map in data.items %}
+                            <a href="#" class="location {{type}}"
+                               title="PBBM - {{secret_data.name}} | {{secret_data.vi_name}} - Tầng #{{map|join:', '}} - Xuất hiện: {{total}}">
+                                <i class="fas fa-map-marker"></i>
+                                PBBM - {{secret_data.name}} #{{map|join:', '}} ({{total}})
+                            </a>
+                            {% endfor %}
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            {% else %}
+                {% for total, map in appear.items %}
+                    {% if type == 'normal' %}
+                        <a href="#" class="location {{type}}"
+                           title="Bản đồ #{{map|join:', '}} - Xuất hiện: {{total}}">
+                            <i class="fas fa-map-marker"></i>
+                            Map #{{map|join:', '}} ({{total}})
+                        </a>
+                    {% elif type == 'hard' %}
+                        <a href="#" class="location {{type}}"
+                           title="Bản đồ khó #{{map|join:', '}} - Xuất hiện: {{total}}">
+                            <i class="fas fa-map-marker"></i>
+                            Map #{{map|join:', '}} khó ({{total}})
+                        </a>
+                    {% elif type == 'hunt' %}
+                        <a href="#" class="location {{type}}"
+                           title="Khiêu chiến #{{map|join:', '}} - Xuất hiện: {{total}}">
+                            <i class="fas fa-map-marker"></i>
+                            Khiêu chiến #{{map|join:', '}} ({{total}})
+                        </a>
+                    {% elif type == 'orochi' %}
+                        <a href="#" class="location {{type}}"
+                           title="Bát xà Orochi tầng #{{map|join:', '}} - Xuất hiện: {{total}}">
+                            <i class="fas fa-map-marker"></i>
+                            Orochi #{{map|join:', '}} ({{total}})
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>

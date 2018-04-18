@@ -1,0 +1,5 @@
+{% load static %}
+
+{% with 'onmyoji/img/wanted/'|add:code_name|add:'/'|add:type as img_src %}
+    <div class="mb-2"><img src="{% static img_src %}"></div>
+{% endwith %}

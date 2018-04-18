@@ -1,0 +1,51 @@
+{% extends "onmyoji/base.html" %}
+
+{% block title %} Onmyoji - Tất tần tật {% endblock title %}
+
+{% block content %}
+<h1 class="text-center mb-5">Tất cả</h1>
+
+<div id="all" class="result d-flex">
+    {% for object_id, object in data.items %}
+
+    <div class="o_item col-md-3">
+        <h3>{{object.vi_name}} <br> {{object.name}}</h3>
+
+        <div class="hint mb-2">
+            {% for hint in object.hint %}
+                {% include "./partial/hint.html" with hint=hint %}
+            {% endfor %}
+        </div>
+
+        {% include "./partial/wanted_img.html" with code_name=object.code_name type='thumb' %}
+
+        <div class="found">
+            {% for total, map in object.found.normal.items %}
+                {% include "./partial/map/normal.html" with map=map total=total %}
+            {% endfor %}
+
+            {% for total, map in object.found.hard.items %}
+                {% include "./partial/map/hard.html" with map=map total=total %}
+            {% endfor %}
+
+            {% for total, map in object.found.hunt.items %}
+                {% include "./partial/map/hunt.html" with map=map total=total %}
+            {% endfor %}
+
+            {% for total, map in object.found.orochi.items %}
+                {% include "./partial/map/orochi.html" with map=map total=total %}
+            {% endfor %}
+
+            {% for secret in object.found.secret %}
+                {% for total, map in secret.data.items %}
+                    {% include "./partial/map/secret.html" with map=map total=total name=secret.secret.name vi_name=secret.secret.vi_name %}
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+
+    {% endfor %}
+</div>
+
+<a href="{% url 'onmyoji:wanted' %}" class="float-left text-white">Truy tìm</a>
+{% endblock content %}

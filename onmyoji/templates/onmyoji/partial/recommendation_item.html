@@ -1,0 +1,21 @@
+{% if item.type == 'normal' %}
+    <a href="#" class="location p-2 m-2 text-white {{item.type}}" title="Bản đồ #{{item.level}}">
+        <i class="fas fa-map-marker"></i>
+        Map #{{item.level}}
+    </a>
+{% elif item.type == 'hard' %}
+    <a href="#" class="location p-2 m-2 text-white {{item.type}}" title="Bản đồ khó #{{item.level}}">
+        <i class="fas fa-map-marker"></i>
+        Map #{{item.level}} khó
+    </a>
+{% elif item.type == 'hunt' %}
+    <a href="#" class="location p-2 m-2 text-white {{item.type}}" title="Khiêu chiến #{{item.level}}">
+        <i class="fas fa-map-marker"></i>
+        Khiêu chiến #{{item.level}}
+    </a>
+{% elif item.type == 'orochi' %}
+    <a href="#" class="location p-2 m-2 text-white {{item.type}}" title="Bát xà Orochi tầng #{{item.level}}">
+        <i class="fas fa-map-marker"></i>
+        Orochi #{{item.level}}
+    </a>
+{% endif %}

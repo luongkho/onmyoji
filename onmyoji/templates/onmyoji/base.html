@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="{% static 'onmyoji/img/favicon.ico' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'onmyoji/css/bootstrap.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'onmyoji/vendors/semantic/semantic.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'onmyoji/css/main.css'%}">
+    <title>{% block title %} Onmyoji - OIVLab {% endblock title %}</title>
+</head>
+
+<body>
+<div id="main_content">
+    <input id="img_path" type="hidden" value="{% static 'onmyoji/img/' %}">
+    {% block content %}{% endblock content %}
+</div>
+
+<footer class="container-fluid">
+    <p>Powered by <a href="mailto:luongkhokhud@gmail.com">OIVLab</a></p>
+</footer>
+
+<script src="{% static 'onmyoji/js/jquery-3.2.1.js' %}"></script>
+<script src="{% static 'htmlDemo/vendors/semantic/semantic.js' %}"></script>
+<script src="{% static 'onmyoji/js/main.js' %}"></script>
+</body>
+</html>

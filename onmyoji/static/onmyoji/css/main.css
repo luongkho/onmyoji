@@ -1,0 +1,142 @@
+#main_content {
+    padding: 50px 10% 50px;
+    min-height: calc(100vh - 50px);
+    background: url("../img/1.jpg") no-repeat fixed center;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.6) 100%);
+    background-size: cover;
+}
+
+h1 {
+    color: white;
+}
+
+form#find > .search:nth-of-type(2) {
+    order: 3;
+}
+form#find [type="submit"] {
+    min-width: 52px;
+    min-height: 52px;
+    border-radius: 50%;
+    align-self: center;
+    cursor: pointer;
+    border: 2px solid white;
+}
+
+.recommendation h2:only-child {
+    display: none;
+}
+
+.result {
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.o_item {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+}
+#found_result .o_item:nth-child(odd) {
+    //background-color: rgba(0,0,0,.1);
+    background-color: #E5E5E5;
+}
+#found_result .o_item:nth-child(even) {
+    //background-color: rgba(0,0,0,.03);
+    background-color: #F7F7F7;
+}
+#all .o_item:nth-child(3n-2) {
+    //background-color: rgba(0,0,0,.3);
+    background-color: #B2B2B2;
+}
+#all .o_item:nth-child(3n-1) {
+    //background-color: rgba(0,0,0,.1);
+    background-color: #E5E5E5;
+}
+#all .o_item:nth-child(3n) {
+    //background-color: rgba(0,0,0,.03);
+    background-color: #F7F7F7;
+}
+
+.location {
+    text-align: left;
+    border-radius: 0.5rem;
+    color: white;
+}
+#found_result .location {
+    margin: 0.5rem;
+    padding: 0.5rem;
+}
+#all .location {
+    margin-bottom: 0.25rem;
+    padding: 0.25rem;
+}
+
+.location:hover, .hint_item:hover {
+    color: white
+}
+.location.normal {
+    background-color: #a52a2a;
+}
+.location.hard {
+    background-color: #8e2525;
+}
+.location.hunt {
+    background-color: #e08585;
+}
+.location.orochi {
+    background-color: #6666ff;
+}
+.location.secret {
+    background-color: #66ff66;
+}
+
+.hint, .found {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.hint_item {
+    margin-bottom: 0.25rem;
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+    color: white;
+}
+
+img {
+    max-width: 100%;
+}
+
+footer {
+    clear: both;
+    min-height: 50px;
+    background-color: #323741;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@-webkit-keyframes Rotate {
+    from {
+        -webkit-transform:rotate(0deg);
+    }
+    to {
+        -webkit-transform:rotate(360deg);
+    }
+}
+.spinner {
+    -webkit-animation-name: Rotate;
+     -webkit-animation-duration: 2s;
+     -webkit-animation-iteration-count: infinite;
+     -webkit-animation-timing-function: linear;
+     -moz-animation-name: Rotate;
+     -moz-animation-duration: 2s;
+     -moz-animation-iteration-count: infinite;
+     -moz-animation-timing-function: linear;
+     -ms-animation-name: Rotate;
+     -ms-animation-duration: 2s;
+     -ms-animation-iteration-count: infinite;
+     -ms-animation-timing-function: linear;
+}
+

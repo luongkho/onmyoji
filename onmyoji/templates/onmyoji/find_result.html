@@ -1,0 +1,18 @@
+<div>
+    <div class="text-center m-3">
+        <div class="recommendation m-2">
+            <h2 class="text-white">Bản đồ đề cử</h2>
+            {% for recommendation in recommendations %}
+                {% include "./partial/recommendation_item.html" with item=recommendation %}
+            {% endfor %}
+        </div>
+
+        <div class="result d-md-flex justify-content-around mt-5">
+            {% for wanted_id, wanted in wanted_data.items %}
+                {% include "./partial/found_item.html" with wanted=wanted %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<a href="{% url 'onmyoji:all' %}" class="float-right text-white">Xem tất cả</a>
