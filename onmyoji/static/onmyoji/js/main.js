@@ -27,9 +27,9 @@
         var img_path = $('#img_path').val();
 
         var old_bg = $target.css('background-image'),
-            new_bg = 'url("' + img_path + img + '.jpg")'
+            new_bg_source = 'url("' + img_path + img + '.jpg")'
 
-        $target.css('background-image', bg.replace(/url\(.*\)/i, new_bg));
+        $target.css('background-image', old_bg.replace(/url\(.*\)/i, new_bg_source));
     }
 
     $(document).ready(function() {
