@@ -21,10 +21,15 @@
     }
 
     function randomBackground() {
+        var $target = $('#main_content');
         var available = [1, 2, 3];
         var img = available[Math.floor(Math.random() * available.length)];
         var img_path = $('#img_path').val();
-        $('#main_content').css('background-image', 'linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.6) 100%), url("' + img_path + img + '.jpg")');
+
+        var old_bg = $target.css('background-image'),
+            new_bg = 'url("' + img_path + img + '.jpg")'
+
+        $target.css('background-image', bg.replace(/url\(.*\)/i, new_bg));
     }
 
     $(document).ready(function() {
